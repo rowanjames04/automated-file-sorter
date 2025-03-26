@@ -1,7 +1,14 @@
 import os
 import shutil
 
-folder_path = "/users/rowanjames/Downloads"
+def get_valid_path():
+    while True:
+        folder_path = input("Enter the folder path: ").strip()
+        if os.path.exists(folder_path) and os.path.isdir(folder_path):
+            return folder_path
+        print("Invalid path. Please enter a valid directory.")
+
+folder_path = get_valid_path()
 file_names = os.listdir(folder_path)
 
 #stores file types
